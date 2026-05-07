@@ -1,0 +1,90 @@
+/* Fondo principal */
+.footer {
+  background: linear-gradient(135deg, #0a2540, #1e3a8a);
+  color: #e5e7eb;
+  padding: 40px 20px;
+}
+
+/* Contenedor */
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Grid principal */
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Títulos */
+.title {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Texto */
+.text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Links */
+.link {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #cbd5f5;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: white;
+}
+
+/* Equipo */
+.team {
+  margin-top: 40px;
+}
+
+.cards {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* Card */
+.card {
+  background: #1e3a8a;
+  padding: 15px;
+  border-radius: 10px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Footer bottom */
+.bottom {
+  border-top: 1px solid #3b82f6;
+  margin-top: 30px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 13px;
+}

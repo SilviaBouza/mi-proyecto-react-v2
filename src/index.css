@@ -1,0 +1,8 @@
+:root {
+  --primary: #1e3a8a;       /* azul principal */
+  --primary-dark: #0a2540;  /* azul oscuro */
+  --primary-light: #3b82f6; /* azul claro */
+  --text-light: #e5e7eb;
+  --text-dark: #111827;
+  --bg-light: #f9fafb;
+}
