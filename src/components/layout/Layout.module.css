@@ -1,11 +1,21 @@
 .layout {
-  background-color: var(--bg-light);
   min-height: 100vh;
+
+  background-color: #f8fafc;
+
   display: flex;
+
   flex-direction: column;
 }
 
 .main {
   flex: 1;
+
+  max-width: 1200px;
+
+  width: 100%;
+
+  margin: 30px auto;
+
   padding: 20px;
 }

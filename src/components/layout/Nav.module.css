@@ -1,22 +1,37 @@
 .nav {
-  background: var(--primary);
+  background-color: #1e293b;
+
   padding: 15px 20px;
 }
 
-.list {
+.container {
+  max-width: 1200px;
+
+  margin: auto;
+
   display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.links {
+  display: flex;
+
   gap: 20px;
-  list-style: none;
 }
 
 .link {
-  color: var(--text-light);
+  color: #e2e8f0;
+
   text-decoration: none;
+
   font-weight: 500;
-  transition: all 0.3s;
+
+  transition: 0.3s;
 }
 
 .link:hover {
   color: white;
-  border-bottom: 2px solid var(--primary-light);
 }

@@ -5,12 +5,27 @@ import CartWidget from '../CartWidget';
 const Nav = () => {
   return (
     <nav className={styles.nav}>
-      <ul className={styles.list}>
-        <li><Link className={styles.link} to="/">Inicio</Link></li>
-        <li><Link className={styles.link} to="/productos">Productos</Link></li>
-        <li><Link className={styles.link} to="/carrito">Carrito</Link></li>
-        <li><CartWidget /></li>
-      </ul>
+
+      <div className={styles.container}>
+
+        <div className={styles.links}>
+          <Link className={styles.link} to="/">
+            Inicio
+          </Link>
+
+          <Link className={styles.link} to="/productos">
+            Productos
+          </Link>
+
+          <Link className={styles.link} to="/carrito">
+            Carrito
+          </Link>
+        </div>
+
+        <CartWidget />
+
+      </div>
+
     </nav>
   );
 };

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import CartWidget from '../components/CartWidget';
 
 const CartContext = createContext();
 
@@ -35,3 +36,4 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+export default CartWidget;
