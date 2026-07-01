@@ -1,0 +1,48 @@
+.footer {
+  background: linear-gradient(135deg, #0a2540, #1e3a8a);
+
+  color: white;
+
+  padding: 50px 20px;
+}
+.container {
+  max-width: 1000px;
+
+  margin: auto;
+
+  padding: 0 20px;
+}
+.team {
+  margin-top: 40px;
+
+  text-align: center;
+}
+.cards {
+
+  display: flex;
+
+  text-align: center;
+
+  justify-content: center;
+
+  gap: 20px;
+
+
+  flex-wrap: wrap;
+
+  margin-top: 20px;
+}
+
+.bottom {
+  border-top: 1px solid rgba(255,255,255,0.2);
+
+  margin-top: 40px;
+
+  padding-top: 20px;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  color: #cbd5e1;
+}

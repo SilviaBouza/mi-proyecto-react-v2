@@ -1,0 +1,14 @@
+.container {
+  text-align: center;
+  padding: 40px;
+}
+
+.title {
+  color: var(--primary);
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: var(--text-dark);
+}
