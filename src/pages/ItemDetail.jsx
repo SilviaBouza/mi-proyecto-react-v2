@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
+<<<<<<< HEAD
 import { db } from '../firebase/config';
 import {
   doc,
@@ -12,11 +13,14 @@ import {
   getDocs
 } from 'firebase/firestore';
 
+=======
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
 const ItemDetail = () => {
   const { id } = useParams();
   const { addToCart } = useCart();
 
   const [producto, setProducto] = useState(null);
+<<<<<<< HEAD
   const [opiniones, setOpiniones] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState('');
@@ -312,3 +316,32 @@ console.log('ID producto actual:', docSnap.id);
 };
 
 export default ItemDetail;*/
+=======
+
+  useEffect(() => {
+    fetch('/productos.json')
+      .then(res => res.json())
+      .then(data => {
+        const encontrado = data.find(p => p.id === parseInt(id));
+        setProducto(encontrado);
+      });
+  }, [id]);
+
+  if (!producto) return <p>Cargando producto...</p>;
+
+  return (
+    <div>
+      <h2>{producto.nombre}</h2>
+      <p>Precio: ${producto.precio}</p>
+      <p>Categoría: {producto.categoria}</p>
+
+       <button onClick={() => addToCart(producto)}>
+        Agregar al carrito
+      </button>
+    </div>
+    
+  );
+};
+
+export default ItemDetail;
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4

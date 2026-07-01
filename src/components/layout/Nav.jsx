@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import styles from "./Nav.module.css";
@@ -5,11 +6,19 @@ import styles from "./Nav.module.css";
 const Nav = () => {
   const { user } = useAuth();
 
+=======
+import { Link } from 'react-router-dom';
+import styles from './Nav.module.css';
+import CartWidget from '../CartWidget';
+
+const Nav = () => {
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
   return (
     <nav className={styles.nav}>
 
       <div className={styles.container}>
 
+<<<<<<< HEAD
         <NavLink
           to="/"
           end
@@ -48,6 +57,23 @@ const Nav = () => {
             Dashboard
           </NavLink>
         )}
+=======
+        <div className={styles.links}>
+          <Link className={styles.link} to="/">
+            Inicio
+          </Link>
+
+          <Link className={styles.link} to="/productos">
+            Productos
+          </Link>
+
+          <Link className={styles.link} to="/carrito">
+            Carrito
+          </Link>
+        </div>
+
+        <CartWidget />
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
 
       </div>
 

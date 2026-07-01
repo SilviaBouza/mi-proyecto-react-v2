@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+<<<<<<< HEAD
 
 export const CartContext = createContext();
 
@@ -19,10 +20,29 @@ export const CarritoProvider = ({ children }) => {
 
     if (existe) {
       return carritoActual.map((p) =>
+=======
+import CartWidget from '../components/CartWidget';
+
+const CartContext = createContext();
+
+// Hook para usar el contexto más fácil
+export const useCart = () => useContext(CartContext);
+
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState([]);
+
+  // ➕ Agregar producto
+  const addToCart = (producto) => {
+    const existe = cart.find(p => p.id === producto.id);
+
+    if (existe) {
+      const actualizado = cart.map(p =>
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
         p.id === producto.id
           ? { ...p, cantidad: p.cantidad + 1 }
           : p
       );
+<<<<<<< HEAD
     }
      
     return [
@@ -105,3 +125,23 @@ export const CarritoProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+=======
+      setCart(actualizado);
+    } else {
+      setCart([...cart, { ...producto, cantidad: 1 }]);
+    }
+  };
+
+  // 🔢 Cantidad total de productos
+  const getTotalItems = () => {
+    return cart.reduce((acc, prod) => acc + prod.cantidad, 0);
+  };
+
+  return (
+    <CartContext.Provider value={{ cart, addToCart, getTotalItems }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
+export default CartWidget;
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4

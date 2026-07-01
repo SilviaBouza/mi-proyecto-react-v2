@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ==========================================
    NAV
 ========================================== */
@@ -132,4 +133,42 @@
 
 }
 
+=======
+.nav {
+  background-color: #1e293b;
+
+  padding: 15px 20px;
+}
+
+.container {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.links {
+  display: flex;
+
+  gap: 20px;
+}
+
+.link {
+  color: #e2e8f0;
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  transition: 0.3s;
+}
+
+.link:hover {
+  color: white;
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
 }

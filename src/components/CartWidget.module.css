@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .carritoLink{
     text-decoration:none;
     color:inherit;
@@ -34,4 +35,9 @@
 
     font-size:.75rem;
     font-weight:bold;
+=======
+.cart {
+  color: white;
+  font-weight: bold;
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
 }

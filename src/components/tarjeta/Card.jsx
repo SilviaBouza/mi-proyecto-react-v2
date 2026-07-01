@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
 const Card = ({ nombre, rol }) => {
   return (
     <div style={{

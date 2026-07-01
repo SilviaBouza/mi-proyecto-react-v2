@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { CarritoProvider } from "./context/CartContext.jsx";
@@ -29,11 +30,20 @@ import './index.css'
 import App from './App.jsx'
 import { AuthProvider } from "./context/AuthContext";
 
+=======
+import { createRoot } from 'react-dom/client'
+import { CartProvider } from './context/CartContext';
+import './index.css'
+import App from './App.jsx'
+
+import { BrowserRouter } from 'react-router-dom';
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
 
 
 createRoot(document.getElementById('root')).render(
   
 <BrowserRouter>
+<<<<<<< HEAD
   <AuthProvider>
     <CartProvider>
       <App />
@@ -41,3 +51,10 @@ createRoot(document.getElementById('root')).render(
   </AuthProvider>
 </BrowserRouter>
 )*/
+=======
+  <CartProvider>
+    <App />
+  </CartProvider>
+</BrowserRouter>
+)
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import {
   FaShoppingCart,
@@ -40,11 +41,17 @@ const Header = () => {
     return "Usuario";
   };
 
+=======
+import styles from './Header.module.css';
+
+const Header = () => {
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
   return (
     <header className={styles.header}>
 
       <div className={styles.container}>
 
+<<<<<<< HEAD
         {/* ================= LOGO ================= */}
 
         <Link to="/" className={styles.logo}>
@@ -129,6 +136,16 @@ const Header = () => {
 
           </Link>
 
+=======
+        <div>
+          <h1 className={styles.logo}>
+            TechStore
+          </h1>
+
+          <p className={styles.subtitle}>
+            Tecnología y desarrollo web
+          </p>
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
         </div>
 
       </div>
@@ -137,6 +154,7 @@ const Header = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Header;
 
 /*import { Link } from "react-router-dom";
@@ -329,3 +347,6 @@ const Header = () => {
 // };
 
 // export default Header;*/
+=======
+export default Header;
+>>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
