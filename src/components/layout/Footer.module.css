@@ -1,48 +1,156 @@
 .footer {
-  background: linear-gradient(135deg, #0a2540, #1e3a8a);
-
-  color: white;
-
-  padding: 50px 20px;
+  width: 100%;
+  background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+  color: #fff;
+  margin-top: 70px;
 }
+
 .container {
-  max-width: 1000px;
-
+  max-width: 1300px;
   margin: auto;
-
-  padding: 0 20px;
+  padding: 60px 25px 25px;
 }
-.team {
-  margin-top: 40px;
 
+.title {
   text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #ffffff;
+  letter-spacing: 1px;
 }
+
 .cards {
-
   display: flex;
-
-  text-align: center;
-
   justify-content: center;
-
-  gap: 20px;
-
-
+  align-items: flex-start;
   flex-wrap: wrap;
-
-  margin-top: 20px;
+  gap: 60px;
 }
 
-.bottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
-
-  margin-top: 40px;
-
-  padding-top: 20px;
-
+.card {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 
-  font-size: 13px;
+  transition: transform .35s ease;
+}
 
-  color: #cbd5e1;
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.avatar {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 6px solid rgba(255,255,255,.12);
+
+  box-shadow:
+      0 12px 35px rgba(0,0,0,.35);
+
+  transition: .35s;
+}
+
+.card:hover .avatar {
+  transform: scale(1.05);
+
+  border-color: #38bdf8;
+
+  box-shadow:
+      0 18px 45px rgba(56,189,248,.30);
+}
+
+.card h4 {
+  margin-top: 18px;
+  margin-bottom: 4px;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  color: #ffffff;
+  letter-spacing: 0.4px;
+}
+
+.card p {
+  margin: 0;
+
+  font-size: 0.82rem;
+  font-weight: 400;
+
+  color: #94a3b8;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.bottom {
+  margin-top: 70px;
+
+  border-top: 1px solid rgba(255,255,255,.12);
+
+  padding-top: 25px;
+
+  text-align: center;
+}
+
+.bottom p {
+  color: #94a3b8;
+
+  font-size: .95rem;
+
+  letter-spacing: .4px;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 992px) {
+
+  .cards{
+      gap:45px;
+  }
+
+  .avatar{
+      width:150px;
+      height:150px;
+  }
+
+}
+
+/* ---------- Móvil ---------- */
+
+@media (max-width:768px){
+
+  .container{
+      padding:50px 20px;
+  }
+
+  .title{
+      font-size:1.7rem;
+      margin-bottom:40px;
+  }
+
+  .cards{
+      flex-direction:column;
+      align-items:center;
+      gap:45px;
+  }
+
+  .card{
+      width:100%;
+      max-width:260px;
+  }
+
+  .avatar{
+      width:150px;
+      height:150px;
+  }
+
+  .bottom{
+      margin-top:50px;
+  }
+
 }

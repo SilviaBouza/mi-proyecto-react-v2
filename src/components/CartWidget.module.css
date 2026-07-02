@@ -1,43 +1,37 @@
-<<<<<<< HEAD
-.carritoLink{
-    text-decoration:none;
-    color:inherit;
+.carritoLink {
+  text-decoration: none;
+  color: inherit;
 }
 
-.carritoIconWrapper{
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.carritoIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.iconEmoji{
-    font-size:1.6rem;
-    color:white;
-}
-
-.badge{
-    position:absolute;
-    top:-8px;
-    right:-10px;
-
-    background:#00d084;
-    color:white;
-
-    border-radius:50%;
-
-    min-width:20px;
-    height:20px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:.75rem;
-    font-weight:bold;
-=======
-.cart {
+.iconEmoji {
+  font-size: 1.6rem;
   color: white;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+
+  background: #00d084;
+  color: white;
+
+  border-radius: 50%;
+
+  min-width: 20px;
+  height: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 0.75rem;
   font-weight: bold;
->>>>>>> d15c7ce5e5e1859b4632feef2d67078239195ca4
 }
