@@ -1,5 +1,5 @@
 
-.card {
+/*.card {
   --clr-bg:        #111214;
   --clr-surface:   #18191d;
   --clr-border:    rgba(255, 255, 255, 0.07);
@@ -238,7 +238,12 @@
   box-shadow: 0 0 20px rgba(42, 171, 124, 0.3) !important;
   pointer-events: none; /* Evita doble clic */
 }
-/*.card {
+
+
+
+
+
+.card {
   background: white;
   border-radius: 10px;
   padding: 15px;
@@ -279,7 +284,7 @@
   padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
-}*/
+}
 
 .button:hover {
   background: var(--primary-light);

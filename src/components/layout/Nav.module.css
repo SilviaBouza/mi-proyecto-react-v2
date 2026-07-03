@@ -173,3 +173,48 @@
 }
 
 }
+/* ================================
+   MENÚ MÓVIL
+================================ */
+
+@media (max-width: 768px) {
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 280px;
+    height: 100vh;
+    background: #172033;
+    z-index: 999;
+    transition: right .35s ease;
+    box-shadow: -10px 0 30px rgba(0,0,0,.35);
+    display: flex;
+    align-items: flex-start;
+    padding-top: 90px;
+  }
+
+  .mobileOpen {
+    right: 0;
+  }
+
+  .container {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+  }
+
+  .link {
+    width: 100%;
+    padding: 18px 28px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    font-size: 1rem;
+  }
+
+  .link::after {
+    display: none;
+  }
+
+}

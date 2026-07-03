@@ -2,15 +2,20 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import styles from "./Nav.module.css";
 
-const Nav = () => {
+const Nav = ({ menuOpen, closeMenu }) => {
   const { user } = useAuth();
 
   return (
-    <nav className={styles.nav}>
+    <nav
+  className={`${styles.nav} ${
+    menuOpen ? styles.mobileOpen : ""
+  }`}
+>
       <div className={styles.container}>
         <NavLink
           to="/"
           end
+          onClick={closeMenu}
           className={({ isActive }) =>
             isActive
               ? `${styles.link} ${styles.active}`
@@ -22,6 +27,7 @@ const Nav = () => {
 
         <NavLink
           to="/productos"
+          onClick={closeMenu}
           className={({ isActive }) =>
             isActive
               ? `${styles.link} ${styles.active}`
@@ -33,6 +39,7 @@ const Nav = () => {
 
         <NavLink
           to="/carrito"
+          onClick={closeMenu}
           className={({ isActive }) =>
             isActive
               ? `${styles.link} ${styles.active}`
@@ -45,6 +52,7 @@ const Nav = () => {
         {user?.rol === "admin" && (
           <NavLink
             to="/dashboard"
+            onClick={closeMenu}
             className={({ isActive }) =>
               isActive
                 ? `${styles.link} ${styles.active}`
@@ -52,6 +60,7 @@ const Nav = () => {
             }
           >
             Dashboard
+            onClick={closeMenu}
           </NavLink>
         )}
       </div>

@@ -5,6 +5,8 @@ import {
   FaSignOutAlt,
   FaTools,
   FaLaptopCode,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
 
 import styles from "./Header.module.css";
@@ -14,7 +16,7 @@ import { useAuth } from "../../context/AuthContext";
 
 import BarraBusqueda from "../search/BarraBusqueda";
 
-const Header = () => {
+const Header = ({ menuOpen, toggleMenu }) => {
   const { obtenerCantidadTotal } = useCart();
   const { user, logout } = useAuth();
 
@@ -46,7 +48,13 @@ const Header = () => {
         {/* ================= LOGO ================= */}
         <Link to="/" className={styles.logo}>
           <FaLaptopCode className={styles.logoIcon} />
-
+      <button
+        className={styles.menuButton}
+        onClick={toggleMenu}
+        aria-label="Abrir menú"
+      >
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </button>
           <div>
             <h1>TechStore</h1>
             <span>Tecnología para todos</span>
