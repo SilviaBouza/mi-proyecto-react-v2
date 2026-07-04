@@ -9,8 +9,7 @@ import Dashboard from "./components/forms/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 // Si todavía no usas PrivateRoute, elimina esta línea.
- import PrivateRoute from "./routes/PrivateRoute";
-
+import RutasProtegidas from './components/RutasProtegidas';
 import "./App.css";
 
 function App() {
@@ -39,11 +38,15 @@ function App() {
           element={<Carrito />}
         />
 
-        <Route
-          path="/dashboard"
-          element={<Dashboard />}
+        <Route 
+            path="/dashboard" 
+            element={
+              <RutasProtegidas rolesPermitidos={["admin"]}>
+                <Dashboard />
+              </RutasProtegidas>
+        }
         />
-
+ 
         <Route
           path="/login"
           element={<Login />}

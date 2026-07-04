@@ -4,6 +4,10 @@ import { Navigate } from "react-router-dom";
 const RutasProtegidas = ({ children, rolesPermitidos }) => {
   
   const { user, loading } = useAuth();
+  console.log("USER:", user);
+console.log("LOADING:", loading);
+console.log("ROL:", user?.rol);
+  //console.log("USER:", user);
   // Si no hay usuario, mandamos a loguear
   if (!user) {
     return <Navigate to="/login" replace />;

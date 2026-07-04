@@ -52,10 +52,14 @@ export const ProductosProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    obtenerTotal();
-    cargarPagina(1);
-  }, []);
+ useEffect(() => {
+  const init = async () => {
+    await obtenerTotal();
+    await cargarPagina(1);
+  };
+
+  init();
+}, []);
 
   // A Partir de aca tenemos las funciones del CRUD 
   const agregarProducto = async (nuevoProd) => {
