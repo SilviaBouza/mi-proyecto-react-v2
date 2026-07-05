@@ -51,8 +51,8 @@ export const AuthProvider = ({ children }) => {
           if (userDocSnap.exists()) {
             const datosUsuario = userDocSnap.data();
             console.log("datosUsuario =", datosUsuario);
-console.log("datosUsuario.rol =", datosUsuario.rol);
-console.log("datosUsuario.user =", datosUsuario.user);
+            console.log("datosUsuario.rol =", datosUsuario.rol);
+            console.log("datosUsuario.user =", datosUsuario.user);
             // Pasamos los datos completos de Firestore (incluyendo el nombre) al estado user
             if (datosUsuario.rol === "admin") {
               setUser({ ...currentUser, nombre: datosUsuario.nombre, rol: "admin" });

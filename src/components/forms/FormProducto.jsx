@@ -27,7 +27,7 @@ const FormProducto = ({ datosForm, manejarCambio, manejarEnvio, manejarCambioIma
             name="nombre"
             value={datosForm.nombre}
             onChange={manejarCambio}
-            placeholder="Ej. Cámara Nikon Z6"
+            placeholder="Ej. Cámara web HD"
             required
           />
         </div>

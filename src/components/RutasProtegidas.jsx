@@ -1,13 +1,10 @@
-import { useAuth } from "../context/AuthContext";
+/*import { useAuth } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
 
 const RutasProtegidas = ({ children, rolesPermitidos }) => {
   
   const { user, loading } = useAuth();
-  console.log("USER:", user);
-console.log("LOADING:", loading);
-console.log("ROL:", user?.rol);
-  //console.log("USER:", user);
+
   // Si no hay usuario, mandamos a loguear
   if (!user) {
     return <Navigate to="/login" replace />;
@@ -17,6 +14,33 @@ console.log("ROL:", user?.rol);
     return <Navigate to="/" replace />;
   }
   // Si paso todos los filtros, lo dejamos ver la pantalla protegida
+  return <>{children}</>;
+};
+
+export default RutasProtegidas;*/
+
+import { useAuth } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
+
+const RutasProtegidas = ({ children, rolesPermitidos }) => {
+  const { user, loading } = useAuth();
+
+  
+
+  //  IMPORTANTE: esperar a Firebase
+  if (loading) {
+    return <p>Cargando...</p>;
+  }
+
+  //  recién acá decidís
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (rolesPermitidos && !rolesPermitidos.includes(user.rol)) {
+    return <Navigate to="/" replace />;
+  }
+
   return <>{children}</>;
 };
 

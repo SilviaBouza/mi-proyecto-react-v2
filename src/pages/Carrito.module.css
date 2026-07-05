@@ -1,0 +1,199 @@
+.container {
+  width: min(1100px, 92%);
+  margin: 40px auto;
+}
+
+.tituloPagina {
+  text-align: center;
+  margin-bottom: 35px;
+  color: #1E3A5F;
+  font-size: 2rem;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  margin-bottom: 18px;
+  padding: 18px;
+
+  background: #fff;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+
+  flex-wrap: wrap;
+}
+
+.botones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnCantidad {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  background: #1E3A5F;
+  color: white;
+
+  transition: .3s;
+}
+
+.btnCantidad:hover {
+  transform: scale(1.08);
+}
+
+.cantidad {
+  font-weight: bold;
+  min-width: 22px;
+  text-align: center;
+}
+
+.btnEliminar {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  background: #d32f2f;
+  color: white;
+
+  transition: .3s;
+}
+
+.btnEliminar:hover {
+  transform: scale(1.08);
+}
+
+.linea {
+  margin: 35px 0;
+}
+
+.total {
+  text-align: center;
+  color: #1E3A5F;
+  font-size: 1.8rem;
+}
+
+.contenedorBoton {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.btnVaciar {
+  padding: 12px 30px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  background: #1E3A5F;
+  color: white;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  transition: .3s;
+}
+
+.btnVaciar:hover {
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   CARRITO VACÍO
+================================ */
+
+.carritoVacio {
+  min-height: 65vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+}
+
+.iconoCarrito {
+  font-size: clamp(5rem, 12vw, 8rem);
+
+  color: #1E3A5F;
+
+  margin-bottom: 25px;
+
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,.20));
+}
+
+.tituloVacio {
+  margin: 0;
+
+  color: #333;
+
+  font-size: 2rem;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+.subtituloVacio {
+  margin-top: 12px;
+
+  color: #666;
+
+  font-size: 1.1rem;
+
+  text-align: center;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .botones {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .tituloPagina {
+    font-size: 1.7rem;
+  }
+
+  .total {
+    font-size: 1.5rem;
+  }
+
+  .tituloVacio {
+    font-size: 1.6rem;
+  }
+
+  .subtituloVacio {
+    font-size: 1rem;
+  }
+}

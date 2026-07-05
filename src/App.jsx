@@ -8,9 +8,10 @@ import ProductosNacionalesDetalle from "./pages/ProductosNacionalesDetalle";
 import Dashboard from "./components/forms/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-// Si todavía no usas PrivateRoute, elimina esta línea.
 import RutasProtegidas from './components/RutasProtegidas';
-import "./App.css";
+import ResultadoBusqueda from './components/search/ResultadoBusqueda'
+import './App.css';
+
 
 function App() {
   return (
@@ -52,6 +53,10 @@ function App() {
           element={<Login />}
         />
 
+        <Route 
+        path="/busqueda"
+         element={<ResultadoBusqueda />} />
+        
         <Route
           path="/register"
           element={<Register />}

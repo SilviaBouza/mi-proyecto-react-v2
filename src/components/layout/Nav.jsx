@@ -60,8 +60,7 @@ const Nav = ({ menuOpen, closeMenu }) => {
             }
           >
             Dashboard
-            onClick={closeMenu}
-          </NavLink>
+            </NavLink>
         )}
       </div>
     </nav>
