@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import ItemListContainer from "./components/Item/ItemListContainer";
 import ItemDetail from "./pages/ItemDetail";
 import Carrito from "./pages/Carrito";
-import ProductosNacionalesDetalle from "./pages/ProductosNacionalesDetalle";
+//import ProductosNacionalesDetalle from "./item/ProductosNacionalesDetalle";
 import Dashboard from "./components/forms/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -29,10 +29,7 @@ function App() {
           element={<ItemDetail />}
         />
 
-        <Route
-          path="/productos-nacionales/:id"
-          element={<ProductosNacionalesDetalle />}
-        />
+        
 
         <Route
           path="/carrito"

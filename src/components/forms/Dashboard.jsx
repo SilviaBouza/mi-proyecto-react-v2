@@ -4,13 +4,21 @@ import { useProductos } from "../../context/ProductosContext";
 import styles from "./Dashboard.module.css";
 import TrashIcon from "../../assets/icons/TrashIcon.jsx";
 import EditIcon from "../../assets/icons/EditIcon.jsx";
+import Paginacion from "../Paginacion";
 
 const Dashboard = () => {
-  const { productos, eliminarProducto } = useProductos();
+  const {
+    productos,
+    eliminarProducto,
+    paginaActual,
+    totalPaginas,
+    cargarPagina,
+    cargando,
+  } = useProductos();
 
   // null  → modal cerrado
   // false → modal abierto en modo "agregar"
-  // obj   → modal abierto en modo "editar" con ese producto
+  // obj   → modal abierto en modo "editar"
   const [productoEditando, setProductoEditando] = useState(null);
   const [modalAbierto, setModalAbierto] = useState(false);
 
@@ -49,6 +57,7 @@ const Dashboard = () => {
             <button className={styles.btnClose} onClick={cerrarModal}>
               &times;
             </button>
+
             <FormContainer
               cerrarModal={cerrarModal}
               productoEditar={productoEditando}
@@ -57,53 +66,74 @@ const Dashboard = () => {
         </div>
       )}
 
-      <div className={styles.cuerpo}>
-        <ul className={styles.lista}>
-          {productos.map(prod => (
-            <li key={prod.id} className={styles.item}>
-
-              {/* Imagen miniatura */}
-              {prod.imagen && (
-                <img
-                  src={prod.imagen}
-                  alt={prod.nombre}
-                  className={styles.itemImg}
-                />
-              )}
-
-              <div className={styles.itemInfo}>
-                <h4>{prod.nombre}</h4>
-                <div className={styles.itemMeta}>
-                  <span className={styles.precio}>${prod.precio}</span>
-                  {prod.categoria && (
-                    <span className={styles.categoria}>{prod.categoria}</span>
+      {cargando && productos.length === 0 ? (
+        <div className={styles.estadoWrapper}>
+          <p className={styles.estadoTexto}>Cargando inventario...</p>
+        </div>
+      ) : (
+        <>
+          <div className={styles.cuerpo}>
+            <ul className={styles.lista}>
+              {productos.map((prod) => (
+                <li key={prod.id} className={styles.item}>
+                  {prod.imagen && (
+                    <img
+                      src={prod.imagen}
+                      alt={prod.nombre}
+                      className={styles.itemImg}
+                    />
                   )}
-                  <span className={styles.stock}>Stock: {prod.stock}</span>
-                </div>
-              </div>
 
-              <div className={styles.itemAcciones}>
-                <button
-                  className={styles.btnEditar}
-                  onClick={() => abrirEditar(prod)}
-                  title="Editar producto"
-                >
-                  <EditIcon />
-                </button>
+                  <div className={styles.itemInfo}>
+                    <h4>{prod.nombre}</h4>
 
-                <button
-                  className={styles.btnBorrar}
-                  onClick={() => manejarEliminar(prod.id)}
-                  title="Eliminar producto"
-                >
-                  <TrashIcon />
-                </button>
-              </div>
+                    <div className={styles.itemMeta}>
+                      <span className={styles.precio}>
+                        ${prod.precio}
+                      </span>
 
-            </li>
-          ))}
-        </ul>
-      </div>
+                      {prod.categoria && (
+                        <span className={styles.categoria}>
+                          {prod.categoria}
+                        </span>
+                      )}
+
+                      <span className={styles.stock}>
+                        Stock: {prod.stock}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className={styles.itemAcciones}>
+                    <button
+                      className={styles.btnEditar}
+                      onClick={() => abrirEditar(prod)}
+                      aria-label="Editar producto"
+                    >
+                      <EditIcon />
+                    </button>
+
+                    <button
+                      className={styles.btnBorrar}
+                      onClick={() => manejarEliminar(prod.id)}
+                      aria-label="Eliminar producto"
+                    >
+                      <TrashIcon />
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Paginacion
+            paginaActual={paginaActual}
+            totalPaginas={totalPaginas}
+            cargarPagina={cargarPagina}
+            cargando={cargando}
+          />
+        </>
+      )}
     </div>
   );
 };

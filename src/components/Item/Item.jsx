@@ -4,6 +4,9 @@ import { useCart } from '../../context/CartContext';
 import styles from './Item.module.css';
 
 const Item = ({ producto }) => {
+  
+  console.log("Producto recibido:", producto);
+   
   const [favorito, setFavorito] = useState(false);
   const [agregado, setAgregado] = useState(false);
 

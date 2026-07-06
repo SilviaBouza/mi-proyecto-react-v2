@@ -17,7 +17,6 @@ const FormProducto = ({ datosForm, manejarCambio, manejarEnvio, manejarCambioIma
       </h2>
 
       <form onSubmit={manejarEnvio} className={styles.form}>
-
         {/* Nombre */}
         <div className={styles.campo}>
           <label className={styles.label}>Nombre</label>
@@ -25,20 +24,20 @@ const FormProducto = ({ datosForm, manejarCambio, manejarEnvio, manejarCambioIma
             className={styles.input}
             type="text"
             name="nombre"
-            value={datosForm.nombre}
+            value={datosForm.nombre || ""}
             onChange={manejarCambio}
-            placeholder="Ej. Cámara web HD"
+            placeholder="Ej. Auriculares Bluetooth"
             required
           />
         </div>
 
-        {/* Descripción */}
+        {/* Descripcion */}
         <div className={styles.campo}>
           <label className={styles.label}>Descripción</label>
           <textarea
             className={`${styles.input} ${styles.textarea}`}
             name="descripcion"
-            value={datosForm.descripcion}
+            value={datosForm.descripcion || ""}
             onChange={manejarCambio}
             placeholder="Descripción del producto..."
             rows={3}
@@ -55,7 +54,7 @@ const FormProducto = ({ datosForm, manejarCambio, manejarEnvio, manejarCambioIma
                 className={`${styles.input} ${styles.inputConEspacio}`}
                 type="number"
                 name="precio"
-                value={datosForm.precio}
+                value={datosForm.precio || ""}
                 onChange={manejarCambio}
                 placeholder="0"
                 min="0"
@@ -70,7 +69,7 @@ const FormProducto = ({ datosForm, manejarCambio, manejarEnvio, manejarCambioIma
               className={styles.input}
               type="number"
               name="stock"
-              value={datosForm.stock}
+              value={datosForm.stock || ""}
               onChange={manejarCambio}
               placeholder="0"
               min="0"
@@ -85,7 +84,7 @@ const FormProducto = ({ datosForm, manejarCambio, manejarEnvio, manejarCambioIma
           <select
             className={`${styles.input} ${styles.select}`}
             name="categoria"
-            value={datosForm.categoria}
+            value={datosForm.categoria || ""}
             onChange={manejarCambio}
             required
           >
@@ -109,8 +108,8 @@ const FormProducto = ({ datosForm, manejarCambio, manejarEnvio, manejarCambioIma
               accept="image/*"
               onChange={manejarCambioImagen}
             />
-            <span className={styles.fileName} id="file-name">
-              Sin archivo seleccionado
+            <span className={styles.fileName}>
+              {datosForm.imagen?.name || "Sin archivo seleccionado"}
             </span>
           </label>
         </div>

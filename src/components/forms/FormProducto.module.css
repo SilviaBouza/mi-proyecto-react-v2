@@ -1,219 +1,192 @@
 .wrapper {
-  display: flex;
-  justify-content: center;
-  padding: 2rem 1rem;
+  max-width: 500px;         /* Controla el ancho del formulario dentro del modal */
+  max-height: 70vh;         /* Limita el alto al 70% de la pantalla para que no toque el header */
+  overflow-y: auto;         /* Activa el scroll vertical interno si el contenido excede el alto */
+  padding: 0.5rem 1rem 0.5rem 0.25rem; /* Margen derecho extra para la barra de scroll */
 }
 
-.form {
-  width: 100%;
-  max-width: 700px;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 18px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
-  border: 1px solid #e8eef7;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
+/* Opcional: Personalización estética de la barra de scroll interna */
+.wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+.wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.wrapper::-webkit-scrollbar-thumb {
+  background: #2a2b30;
+  border-radius: 4px;
 }
 
 .titulo {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1f3b64;
-  margin-bottom: 1rem;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--clr-text);
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
 }
 
-/* ---------------- CAMPOS ---------------- */
+/* ── Formulario ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
 
+/* Campo individual */
 .campo {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: .45rem;
+  gap: 0.45rem;
 }
 
 .label {
-  width: 100%;
-  max-width: 500px;
-  font-size: .85rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  color: #34557a;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-muted);
 }
 
-/* ---------------- INPUTS ---------------- */
-
-.input,
-.select,
-.textarea {
-  width: 100%;
-  max-width: 500px;
-
-  padding: .9rem 1rem;
-
-  border: 1px solid #cfdceb;
+/* Input base */
+.input {
+  background-color: #0d0e10;
+  border: 1px solid var(--clr-border);
   border-radius: 10px;
-
-  background: #f8fbff;
-
-  color: #243447;
-
-  font-size: .95rem;
-
-  transition: .25s;
-}
-
-.input::placeholder,
-.textarea::placeholder {
-  color: #8b97a8;
-}
-
-.input:focus,
-.select:focus,
-.textarea:focus {
+  padding: 0.7rem 1rem;
+  color: var(--clr-text);
+  font-size: 0.9rem;
+  font-family: inherit;
   outline: none;
-  border-color: #2d72d9;
-  box-shadow: 0 0 0 4px rgba(45,114,217,.15);
-  background: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
 }
 
+.input::placeholder {
+  color: #383840;
+}
+
+.input:focus {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px var(--clr-accent-glow);
+}
+
+/* Textarea */
 .textarea {
   resize: vertical;
-  min-height: 110px;
+  min-height: 80px;
+  line-height: 1.5;
 }
 
-/* ---------------- SELECT ---------------- */
-
+/* Select */
 .select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23808090' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
   cursor: pointer;
 }
 
-/* ---------------- DOS COLUMNAS ---------------- */
+.select option {
+  background-color: #111214;
+  color: var(--clr-text);
+}
 
+/* Fila de dos columnas */
 .fila {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
-.fila .campo {
-  align-items: stretch;
-}
-
-.fila .input,
-.fila .select,
-.fila .textarea,
-.fila .label {
-  max-width: 100%;
-}
-
-/* ---------------- INPUT CON $ ---------------- */
-
+/* Input con prefijo $ */
 .inputConPrefijo {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .prefijo {
   position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #56779c;
-  font-weight: bold;
+  left: 1rem;
+  font-size: 0.88rem;
+  color: var(--clr-muted);
+  pointer-events: none;
+  font-family: 'DM Mono', monospace;
 }
 
 .inputConEspacio {
-  padding-left: 28px;
+  padding-left: 1.75rem;
 }
 
-/* ---------------- FILE ---------------- */
-
+/* ── File input ── */
 .fileLabel {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 0.75rem;
+  cursor: pointer;
 }
 
+/* Oculta el input nativo */
 .fileInput {
   display: none;
 }
 
 .fileBtn {
-  background: #2d72d9;
-  color: white;
-  padding: .8rem 1.4rem;
-  border-radius: 8px;
-  cursor: pointer;
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  transition: .25s;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  background: transparent;
+  border: 1px solid var(--clr-accent);
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 
-.fileBtn:hover {
-  background: #1d5fc1;
+.fileLabel:hover .fileBtn {
+  background-color: var(--clr-accent-glow);
 }
 
 .fileName {
-  color: #607188;
-  font-size: .9rem;
+  font-size: 0.8rem;
+  color: var(--clr-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px;
 }
 
-/* ---------------- BOTON ---------------- */
-
 .btnGuardar {
-  align-self: center;
-
-  margin-top: 1rem;
-
-  padding: .95rem 2.5rem;
-
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #385da7;
+  background-color: var(--clr-accent);
   border: none;
   border-radius: 10px;
-
-  background: linear-gradient(135deg,#2d72d9,#1b5bbf);
-
-  color: white;
-
-  font-size: .95rem;
-  font-weight: 600;
-
   cursor: pointer;
-
-  transition: .25s;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  align-self: flex-end;
 }
 
 .btnGuardar:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(45,114,217,.35);
+  opacity: 0.88;
 }
 
 .btnGuardar:active {
-  transform: scale(.97);
+  transform: scale(0.97);
 }
 
 .btnGuardar:disabled {
-  opacity: .5;
+  opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: none;
-}
-
-/* ---------------- RESPONSIVE ---------------- */
-
-@media (max-width:768px){
-
-  .form{
-      padding:1.5rem;
-  }
-
-  .fila{
-      grid-template-columns:1fr;
-  }
-
-  .titulo{
-      font-size:1.7rem;
-  }
-
+  transform: none;
 }
