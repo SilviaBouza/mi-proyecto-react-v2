@@ -57,15 +57,21 @@
 
 .modal {
   position: relative;
-  background-color: var(--clr-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius);
+  background: linear-gradient(
+  180deg,
+  #20334f 0%,
+  #172538 60%,
+  #111827 100%
+);
+  border: 1px solid rgba(90, 130, 200, .20);  border-radius: var(--radius);
   padding: 2.25rem 2rem;
   width: 100%;
-  max-width: 520px;
+  max-width: 620px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  box-shadow:
+  0 30px 90px rgba(0,0,0,.65),
+  0 0 0 1px rgba(120,170,255,.08);
 }
 
 /* scrollbar del modal */
@@ -85,18 +91,17 @@
   font-size: 1.2rem;
   line-height: 1;
   color: var(--clr-muted);
-  background: transparent;
+  background: rgba(255,255,255,.03);
   border: 1px solid var(--clr-border);
   border-radius: 6px;
   cursor: pointer;
   transition: color 0.2s, border-color 0.2s;
 }
 
-.btnClose:hover {
-  color: var(--clr-text);
-  border-color: rgba(255,255,255,0.18);
+.btnClose:hover{
+    background:#29466f;
+    color:white;
 }
-
 /* ── Lista de productos ── */
 .cuerpo { margin-top: 0.5rem; }
 

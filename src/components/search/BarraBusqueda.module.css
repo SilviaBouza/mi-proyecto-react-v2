@@ -47,11 +47,11 @@
 
 /* Al hacer foco, se ilumina con el dorado de tu ecommerce */
 .searchInput:focus {
-  border-color: var(--clr-accent, #c9a84c);
+  border-color: var(--clr-accent, #2c0e80);
   box-shadow: 0 0 16px var(--clr-accent-glow, rgba(201, 168, 76, 0.18));
 }
 
 /* Al hacer foco, cambiamos el color del icono sutilmente */
 .relativeWrapper:focus-within .searchIcon {
-  color: var(--clr-accent, #c9a84c);
+  color: var(--clr-accent, #2c0e80);
 }

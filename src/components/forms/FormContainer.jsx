@@ -1,3 +1,12 @@
+/*Este componente, FormContainer.jsx, es el encargado 
+de la lógica del formulario. Mientras que FormProducto.jsx 
+solo muestra la interfaz, FormContainer.jsx administra 
+el estado, sube las imágenes, agrega o edita productos 
+y se comunica con Firebase.
+En el patrón de diseño de React, este componente actúa 
+como un contenedor (Container) y FormProducto como un
+ componente de presentación (Presentational Component).*/
+
 import { useState, useEffect } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase/config";
