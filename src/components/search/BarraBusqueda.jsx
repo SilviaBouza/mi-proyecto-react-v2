@@ -1,6 +1,6 @@
 import { useBusqueda } from "../../context/BusquedaContext";
 import { useNavigate } from "react-router-dom";
-import styles from "./barraBusqueda.module.css";
+import styles from "./BarraBusqueda.module.css";
 
 const BarraBusqueda = () => {
   const { busqueda, setBusqueda } = useBusqueda();

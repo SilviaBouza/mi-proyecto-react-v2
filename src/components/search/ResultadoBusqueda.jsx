@@ -3,7 +3,7 @@ import { useBusqueda } from "../../context/BusquedaContext";
 import { useProductos } from "../../context/ProductosContext";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./ResultadoBusqueda.module.css";
-import estilosCard from "../item/Item.module.css"; 
+import estilosCard from "../Item/Item.module.css"; 
 
 const ResultadoBusqueda = () => {
   const { busqueda } = useBusqueda();
