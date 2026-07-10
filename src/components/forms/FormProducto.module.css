@@ -1,6 +1,6 @@
 .wrapper {
   max-width: 500px;         /* Controla el ancho del formulario dentro del modal */
-  max-height: 70vh;         /* Limita el alto al 70% de la pantalla para que no toque el header */
+  max-height: 50vh;         /* Limita el alto al 70% de la pantalla para que no toque el header */
   overflow-y: auto;         /* Activa el scroll vertical interno si el contenido excede el alto */
   padding: 0.5rem 1rem 0.5rem 0.25rem; /* Margen derecho extra para la barra de scroll */
 }

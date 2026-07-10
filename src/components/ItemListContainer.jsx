@@ -1,27 +1,54 @@
-import { useEffect, useState } from 'react';
-import Item from './Item';
+/*Este componente ItemListContainer que carga 
+y muestra un catálogo de productos.*/
+
+
+import ItemList from './ItemList';
+import estilos from './ItemListContainer.module.css';
+import { useProductos } from '../../context/ProductosContext';
+import Paginacion from '../Paginacion'
 
 const ItemListContainer = () => {
 
-  const [productos, setProductos] = useState([]);
+  const {
+    productos,
+    cargando,
+    paginaActual,
+    totalPaginas,
+    cargarPagina
+  } = useProductos();
 
-  useEffect(() => {
-    fetch('/productos.json')
-      .then(response => response.json())
-      .then(data => setProductos(data))
-      .catch(error => console.error('Error:', error));
-  }, []);
+  if (cargando && productos.length === 0) {
+    return (
+      <div className={estilos.estadoWrapper}>
+        <div className={estilos.spinner} aria-label="Cargando" />
+        <p className={estilos.estadoTexto}>Cargando productos...</p>
+      </div>
+    );
+  }
+  console.log("Página:", paginaActual);
+  console.log("Total páginas:", totalPaginas);
+  console.log("Productos:", productos.length);
+
+  console.log("Página:", paginaActual);
+console.log("Total:", totalPaginas);
+console.log("Cantidad:", productos.length);
 
   return (
-    <div>
-      <h2>Catálogo de productos</h2>
+    <main className={estilos.contenedor}>
+      <header className={estilos.encabezado}>
+        <h1 className={estilos.titulo}>Nuestros Productos</h1>
+      </header>
 
-      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-        {productos.map(producto => (
-          <Item key={producto.id} producto={producto} />
-        ))}
-      </div>
-    </div>
+      <ItemList productos={productos} />
+
+      {/* Paginación limpia y reutilizable */}
+      <Paginacion
+        paginaActual={paginaActual}
+        totalPaginas={totalPaginas}
+        cargarPagina={cargarPagina}
+        cargando={cargando}
+      />
+    </main>
   );
 };
 

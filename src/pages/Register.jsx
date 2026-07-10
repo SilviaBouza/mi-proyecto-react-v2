@@ -10,7 +10,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  
+
   const { signup } = useAuth(); // Traemos la función de registro del contexto
   const navigate = useNavigate();
 
@@ -54,7 +54,7 @@ const Register = () => {
       <div className={styles.wrapper}>
         <h2 className={styles.titulo}>Crear Cuenta</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
-          
+
           <div className={styles.campo}>
             <label className={styles.label}>Nombre Completo</label>
             <input

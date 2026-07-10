@@ -1,10 +1,10 @@
 .container {
-  --clr-bg: #111214;
+  --clr-bg: #0a2540;
   --clr-surface: #18191d;
   --clr-border: rgba(255, 255, 255, 0.07);
   --clr-text: #f0f0f0;
   --clr-muted: #808090;
-  --clr-accent: #c9a84c;
+  --clr-accent: #3b82f6;
   --clr-accent-glow: rgba(201, 168, 76, 0.18);
   --clr-success: #34d399;
   --radius: 20px;
@@ -61,7 +61,7 @@
 .infoBox {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0px;
 }
 
 .nombre {
@@ -133,7 +133,7 @@
 }
 
 .opinionCard {
-  background: var(--clr-surface);
+  background: #1e3a8a;
   border: 1px solid var(--clr-border);
   padding: 20px;
   border-radius: 15px;
@@ -167,7 +167,7 @@
   color: var(--clr-accent);
   padding: 6px 14px;
   border-radius: 50px;
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   font-family: 'DM Mono', monospace;
   text-transform: uppercase;
   letter-spacing: 0.05em;

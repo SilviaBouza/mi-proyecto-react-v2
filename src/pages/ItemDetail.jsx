@@ -1,189 +1,64 @@
-/*import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
-
-import { db } from '../firebase/config';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import {
   doc,
   getDoc,
   collection,
   query,
   where,
-  getDocs
-} from 'firebase/firestore';
-
-
-const ItemDetail = () => {
-  const { id } = useParams();
-  const { addToCart } = useCart();
-
-  const [producto, setProducto] = useState(null);
-
-  const [opiniones, setOpiniones] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [mensaje, setMensaje] = useState('');
-
-  useEffect(() => {
-    const obtenerDatos = async () => {
-      try {
-        const docRef = doc(db, 'productos', id);
-        const docSnap = await getDoc(docRef);
-
-        if (!docSnap.exists()) {
-          setProducto(null);
-          return;
-        }
-
-        const productoData = {
-          id: docSnap.id,
-          ...docSnap.data()
-        };
-
-        setProducto(productoData);
-
-        const opinionesRef = collection(db, 'opiniones');
-
-        const q = query(
-          opinionesRef,
-          where('productoId', '==', docSnap.id)
-        );
-
-        const opinionesSnap = await getDocs(q);
-
-        const opinionesData = opinionesSnap.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-
-        setOpiniones(opinionesData);
-
-      } catch (error) {
-        console.error(
-          'Error al obtener datos:',
-          error
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    obtenerDatos();
-  }, [id]);
-
-  const handleAgregarAlCarrito = () => {
-    addToCart(producto);
-
-    setMensaje(
-      `${producto.nombre} fue agregado al carrito`
-    );
-
-    setTimeout(() => {
-      setMensaje('');
-    }, 2000);
-  };
-
-  if (loading) {
-    return <p>Cargando producto...</p>;
-  }
-
-  if (!producto) {
-    return <p>Producto no encontrado.</p>;
-  }
-
-  return (
-    <div className="container mt-4">
-      <h2>{producto.nombre}</h2>
-
-      <img
-        src={producto.imagen}
-        alt={producto.nombre}
-        style={{
-          maxWidth: '300px',
-          display: 'block',
-          marginBottom: '20px'
-        }}
-      />
-
-      <p>
-        <strong>Precio:</strong> ${producto.precio}
-      </p>
-
-      <p>
-        <strong>Categoría:</strong>{' '}
-        {producto.categoria}
-      </p>
-
-      {producto.descripcion && (
-        <p>{producto.descripcion}</p>
-      )}
-
-      {mensaje && (
-        <div className="alert alert-success">
-          {mensaje}
-        </div>
-      )}
-
-      <button
-        className="btn btn-primary mb-4"
-        onClick={handleAgregarAlCarrito}
-      >
-        Agregar al carrito
-      </button>
-
-      <hr />
-
-      <h3>Opiniones</h3>
-
-      {opiniones.length === 0 ? (
-        <p>
-          Este producto todavía no tiene
-          opiniones.
-        </p>
-      ) : (
-        opiniones.map(opinion => (
-          <div
-            key={opinion.id}
-            className="mb-3"
-          >
-            <strong>
-              {opinion.clienteNombre}
-            </strong>
-
-            <p>⭐ {opinion.rating}/5</p>
-
-            <p>{opinion.comentario}</p>
-
-            <hr />
-          </div>
-        ))
-      )}
-    </div>
-  );
-};
-
-export default ItemDetail;*/
-
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { collection, query, where, onSnapshot } from "firebase/firestore";
+  onSnapshot,
+} from "firebase/firestore";
 import { db } from "../firebase/config";
-import { useProductos } from "../context/ProductosContext";
 import { useCart } from "../context/CartContext";
 import styles from "./ItemDetail.module.css";
 
 const ItemDetail = () => {
   const { id } = useParams();
 
-  const { productos } = useProductos();
-  const { addToCart } = useCart();
+  const { agregarACarrito } = useCart();
 
-  const producto = productos.find((p) => p.id === id);
+  const [producto, setProducto] = useState(null);
+  const [cargandoProducto, setCargandoProducto] = useState(true);
 
   const [opiniones, setOpiniones] = useState([]);
   const [cargandoOpiniones, setCargandoOpiniones] = useState(true);
   const [errorOpiniones, setErrorOpiniones] = useState(null);
+
   const [mensaje, setMensaje] = useState("");
 
+  // ==========================
+  // Cargar producto por ID
+  // ==========================
+  useEffect(() => {
+    const obtenerProducto = async () => {
+      try {
+        setCargandoProducto(true);
+
+        const productoRef = doc(db, "productos-nacionales", id);
+        const productoSnap = await getDoc(productoRef);
+
+        if (productoSnap.exists()) {
+          setProducto({
+            id: productoSnap.id,
+            ...productoSnap.data(),
+          });
+        } else {
+          setProducto(null);
+        }
+      } catch (error) {
+        console.error("Error al obtener el producto:", error);
+        setProducto(null);
+      } finally {
+        setCargandoProducto(false);
+      }
+    };
+
+    obtenerProducto();
+  }, [id]);
+
+  // ==========================
+  // Cargar opiniones
+  // ==========================
   useEffect(() => {
     setCargandoOpiniones(true);
     setErrorOpiniones(null);
@@ -214,10 +89,13 @@ const ItemDetail = () => {
     return () => unsubscribe();
   }, [id]);
 
+  // ==========================
+  // Agregar al carrito
+  // ==========================
   const agregarAlCarrito = () => {
     if (!producto) return;
 
-    addToCart(producto);
+    agregarACarrito(producto);
 
     setMensaje(`"${producto.nombre}" fue agregado al carrito.`);
 
@@ -226,6 +104,20 @@ const ItemDetail = () => {
     }, 2500);
   };
 
+  // ==========================
+  // Estado de carga
+  // ==========================
+  if (cargandoProducto) {
+    return (
+      <div className={styles.container}>
+        <h2>Cargando producto...</h2>
+      </div>
+    );
+  }
+
+  // ==========================
+  // Producto inexistente
+  // ==========================
   if (!producto) {
     return (
       <div className={styles.container}>
@@ -234,7 +126,7 @@ const ItemDetail = () => {
     );
   }
 
-  return (
+    return (
     <div className={styles.container}>
       <main className={styles.mainContent}>
         <div className={styles.imageWrapper}>
@@ -254,7 +146,9 @@ const ItemDetail = () => {
             </span>
           )}
 
-          <h1 className={styles.nombre}>{producto.nombre}</h1>
+          <h1 className={styles.nombre}>
+            {producto.nombre}
+          </h1>
 
           <p className={styles.descripcion}>
             {producto.descripcion}
@@ -262,7 +156,7 @@ const ItemDetail = () => {
 
           <div className={styles.precio}>
             <span className={styles.moneda}>ARS</span>
-            ${producto.precio}
+            ${Number(producto.precio).toLocaleString("es-AR")}
           </div>
 
           <div className={styles.stockWrapper}>

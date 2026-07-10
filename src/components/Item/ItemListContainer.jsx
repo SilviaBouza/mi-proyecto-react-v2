@@ -11,15 +11,14 @@ import { db } from '../../firebase/config';
   useEffect(() => {
     const obtenerProductos = async () => {
       try {
-        const productosRef = collection(db, 'productos');
+        const productosRef = collection(db, 'productos-nacionales');
 
         const querySnapshot = await getDocs(productosRef);
 
-        const productosFirebase = querySnapshot.docs.map(doc => ({
-          firestoreId: doc.id,
-          ...doc.data()
-        }));
-
+        const productosFirebase = querySnapshot.docs.map((doc) => ({
+         id: doc.id,
+         ...doc.data(),
+      }));
         console.log(productosFirebase);
 
         setProductos(productosFirebase);

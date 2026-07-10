@@ -3,6 +3,8 @@ import { collection, query, orderBy, limit, getDocs, startAfter, getCountFromSer
 import { db } from "../firebase/config";
 
 export const usePagination = (nombreColeccion, campoOrden = "nombre", itemsPorPagina = 8) => {
+ 
+
   const [data, setData] = useState([]);
   const [paginaActual, setPaginaActual] = useState(1);
   const [historialDocs, setHistorialDocs] = useState([null]);

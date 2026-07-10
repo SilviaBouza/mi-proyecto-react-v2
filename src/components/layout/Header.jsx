@@ -48,13 +48,13 @@ const Header = ({ menuOpen, toggleMenu }) => {
         {/* ================= LOGO ================= */}
         <Link to="/" className={styles.logo}>
           <FaLaptopCode className={styles.logoIcon} />
-      <button
-        className={styles.menuButton}
-        onClick={toggleMenu}
-        aria-label="Abrir menú"
-      >
-        {menuOpen ? <FaTimes /> : <FaBars />}
-      </button>
+          <button
+            className={styles.menuButton}
+            onClick={toggleMenu}
+            aria-label="Abrir menú"
+          >
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
           <div>
             <h1>TechStore</h1>
             <span>Tecnología para todos</span>
