@@ -29,10 +29,7 @@ const ItemListContainer = () => {
   console.log("Total páginas:", totalPaginas);
   console.log("Productos:", productos.length);
 
-  console.log("Página:", paginaActual);
-console.log("Total:", totalPaginas);
-console.log("Cantidad:", productos.length);
-
+  
   return (
     <main className={estilos.contenedor}>
       <header className={estilos.encabezado}>
