@@ -13,7 +13,7 @@
   background: transparent;
 }
 .wrapper::-webkit-scrollbar-thumb {
-  background: #2a2b30;
+  background: #1170af;
   border-radius: 4px;
 }
 
@@ -50,7 +50,7 @@
 
 /* Input base */
 .input {
-  background-color: #0d0e10;
+  background-color: #b7bac2;
   border: 1px solid var(--clr-border);
   border-radius: 10px;
   padding: 0.7rem 1rem;
@@ -63,7 +63,7 @@
 }
 
 .input::placeholder {
-  color: #383840;
+  color: #0e0e0f;
 }
 
 .input:focus {
@@ -89,7 +89,7 @@
 }
 
 .select option {
-  background-color: #111214;
+  background-color: #101013;
   color: var(--clr-text);
 }
 
